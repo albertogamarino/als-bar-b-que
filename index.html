@@ -11,18 +11,13 @@
       --bone: #f2eadf;
       --bone-2: #e6dac8;
       --ink: #171412;
-      --ink-2: #211d19;
-      --smoke: #6d6359;
       --muted: rgba(23,20,18,.62);
       --line: rgba(23,20,18,.13);
       --oxblood: #7b241d;
-      --oxblood-2: #a74434;
       --white: #fffaf3;
-      --paper: rgba(255,250,243,.46);
       --max: 1200px;
       --radius: 30px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -35,7 +30,6 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: geometricPrecision;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -49,22 +43,16 @@
       background-size: 46px 46px;
       mask-image: linear-gradient(to bottom, black, transparent 78%);
     }
-
     a { color: inherit; text-decoration: none; }
     img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
     .page { position: relative; z-index: 1; }
     .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-
     header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
+      position: sticky; top: 0; z-index: 40;
       background: rgba(242,234,223,.76);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(18px);
     }
-
     .nav {
       min-height: 76px;
       display: flex;
@@ -73,74 +61,74 @@
       gap: 24px;
     }
 
-    .logo {
-      width: 188px;
-      display: block;
-      line-height: 0;
+    .brand-wordmark {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 3px;
+      line-height: .92;
     }
-
-    .logo svg { width: 100%; height: auto; display: block; }
-
-    .nav-links {
-      display: flex;
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: -.055em;
+      font-size: clamp(1.45rem, 2.1vw, 2.05rem);
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .brand-meta {
+      display: inline-flex;
       align-items: center;
-      gap: 24px;
-      color: rgba(23,20,18,.68);
-      font-size: .72rem;
+      gap: 9px;
+      color: var(--oxblood);
+      font-size: .66rem;
       text-transform: uppercase;
-      letter-spacing: .18em;
-      font-weight: 850;
+      letter-spacing: .22em;
+      font-weight: 900;
+    }
+    .brand-meta::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--oxblood);
+      opacity: .55;
     }
 
-    .nav-links a { transition: color .2s ease; }
+    .logo { width: 188px; display: block; line-height: 0; }
+    .logo svg { width: 100%; height: auto; display: block; }
+    .nav-links {
+      display: flex; align-items: center; gap: 24px;
+      color: rgba(23,20,18,.68);
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; font-weight: 850;
+    }
     .nav-links a:hover { color: var(--oxblood); }
-
     .hero {
       min-height: calc(100vh - 76px);
       padding: clamp(44px, 7vw, 86px) 0 clamp(68px, 8vw, 100px);
-      display: grid;
-      align-items: center;
+      display: grid; align-items: center;
     }
-
     .hero-grid {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
       gap: clamp(28px, 5vw, 72px);
       align-items: center;
     }
-
     .eyebrow {
-      display: inline-flex;
-      gap: 12px;
-      align-items: center;
+      display: inline-flex; gap: 12px; align-items: center;
       color: var(--oxblood);
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .19em;
-      font-weight: 900;
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .19em; font-weight: 900;
     }
-
-    .eyebrow::before {
-      content: "";
-      width: 42px;
-      height: 1px;
-      background: var(--oxblood);
-      opacity: .5;
-    }
-
+    .eyebrow::before { content: ""; width: 42px; height: 1px; background: var(--oxblood); opacity: .5; }
     h1, h2, h3 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       letter-spacing: -.058em;
     }
-
     h1 {
       margin-top: 22px;
       max-width: 740px;
       font-size: clamp(4rem, 10vw, 8.8rem);
       line-height: .82;
     }
-
     .hero-copy {
       margin: 24px 0 0;
       max-width: 500px;
@@ -148,34 +136,18 @@
       font-size: clamp(1rem, 1.45vw, 1.16rem);
       line-height: 1.58;
     }
-
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
-
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 20px;
-      border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 50px; padding: 0 20px; border-radius: 999px;
       border: 1px solid var(--line);
-      font-size: .72rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-weight: 900;
+      font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 900;
       transition: transform .2s ease, background .2s ease, border-color .2s ease;
     }
-
     .btn:hover { transform: translateY(-2px); }
     .btn-primary { color: var(--white); background: var(--ink); border-color: var(--ink); }
     .btn-primary:hover { background: var(--oxblood); border-color: var(--oxblood); }
     .btn-secondary { background: rgba(255,255,255,.24); color: var(--ink); }
-
     .hero-image {
       position: relative;
       height: min(69vh, 720px);
@@ -185,288 +157,151 @@
       box-shadow: 0 28px 72px rgba(23,20,18,.18);
       background: var(--ink);
     }
-
     .hero-image::after {
       content: "";
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(23,20,18,.02), rgba(23,20,18,.36));
     }
-
     .hero-stamp {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 11px 14px;
-      border-radius: 18px;
-      color: var(--white);
-      background: rgba(23,20,18,.76);
-      backdrop-filter: blur(10px);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-weight: 900;
+      position: absolute; left: 18px; bottom: 18px; z-index: 2;
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 14px; border-radius: 18px;
+      color: var(--white); background: rgba(23,20,18,.76); backdrop-filter: blur(10px);
+      font-size: .7rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 900;
     }
-
     .hero-stamp img { width: 30px; height: 30px; border-radius: 8px; }
-
     section { padding: clamp(70px, 9vw, 116px) 0; }
-
     .statement {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 28px;
-      padding: 38px 0;
-      align-items: start;
+      display: grid; grid-template-columns: .95fr 1.05fr; gap: 28px;
+      padding: 38px 0; align-items: start;
     }
-
     .statement-title {
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(2.2rem, 4.8vw, 5.1rem);
-      line-height: .94;
-      letter-spacing: -.055em;
+      line-height: .94; letter-spacing: -.055em;
     }
-
     .statement p {
-      margin: 0;
-      max-width: 610px;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.65;
+      margin: 0; max-width: 610px; color: var(--muted);
+      font-size: 1.02rem; line-height: 1.65;
     }
-
     .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 28px;
+      display: flex; align-items: end; justify-content: space-between;
+      gap: 30px; margin-bottom: 28px;
     }
-
     .kicker {
       margin-bottom: 13px;
       color: var(--oxblood);
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .19em;
-      font-weight: 900;
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .19em; font-weight: 900;
     }
-
-    h2 {
-      font-size: clamp(2.5rem, 5.2vw, 5.3rem);
-      line-height: .91;
-    }
-
-    .intro {
-      max-width: 380px;
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    .cuts {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
+    h2 { font-size: clamp(2.5rem, 5.2vw, 5.3rem); line-height: .91; }
+    .intro { max-width: 390px; margin: 0; color: var(--muted); line-height: 1.62; }
+    .cuts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .cut {
-      position: relative;
-      min-height: 360px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--ink);
-      isolation: isolate;
+      position: relative; min-height: 360px; border-radius: var(--radius);
+      overflow: hidden; background: var(--ink); isolation: isolate;
       box-shadow: 0 18px 46px rgba(23,20,18,.11);
     }
-
     .cut::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(180deg, rgba(23,20,18,.02) 20%, rgba(23,20,18,.7) 100%);
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(23,20,18,.02) 20%, rgba(23,20,18,.72) 100%);
     }
-
     .cut-content {
-      position: absolute;
-      z-index: 2;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      color: var(--white);
+      position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 18px; color: var(--white);
     }
-
     .cut h3 {
       font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      font-size: .86rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-weight: 950;
+      font-size: .86rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 950;
       margin: 0 0 7px;
     }
-
-    .cut p {
-      margin: 0;
-      color: rgba(255,250,243,.74);
-      line-height: 1.45;
-      font-size: .92rem;
+    .cut p { margin: 0; color: rgba(255,250,243,.74); line-height: 1.45; font-size: .92rem; }
+    .split {
+      display: grid;
+      grid-template-columns: .92fr 1fr;
+      gap: clamp(24px, 5vw, 62px);
+      align-items: center;
     }
-
+    .split.reverse { grid-template-columns: 1fr .92fr; }
+    .split-copy p {
+      margin: 18px 0 0; max-width: 480px; color: var(--muted); line-height: 1.65;
+    }
+    .photo-panel {
+      height: 540px; border-radius: 36px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(23,20,18,.14);
+      background: var(--ink);
+    }
     .dark {
       background:
         radial-gradient(circle at 82% 0%, rgba(123,36,29,.22), transparent 24rem),
         linear-gradient(180deg, var(--ink), #0f0e0d);
       color: var(--white);
     }
-
     .dark .kicker { color: #c95745; }
-    .dark .intro { color: rgba(255,250,243,.64); }
-
+    .dark .intro, .dark .split-copy p { color: rgba(255,250,243,.64); }
     .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      overflow: hidden;
+      border-radius: var(--radius); overflow: hidden;
     }
-
     .step {
-      padding: 28px 22px 30px;
-      min-height: 184px;
+      padding: 28px 22px 30px; min-height: 184px;
       background: rgba(255,255,255,.035);
     }
-
     .step-num {
-      margin-bottom: 30px;
-      color: #c95745;
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-weight: 900;
+      margin-bottom: 30px; color: #c95745;
+      font-size: .7rem; text-transform: uppercase; letter-spacing: .18em; font-weight: 900;
     }
-
     .step h3 {
-      margin: 0 0 8px;
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      font-size: .84rem;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-      font-weight: 950;
+      margin: 0 0 8px; font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .84rem; letter-spacing: .17em; text-transform: uppercase; font-weight: 950;
     }
-
-    .step p {
-      margin: 0;
-      color: rgba(255,250,243,.62);
-      line-height: 1.5;
-      font-size: .92rem;
-    }
-
-    .private {
-      display: grid;
-      grid-template-columns: 1fr .92fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .private-copy p {
-      max-width: 470px;
-      color: var(--muted);
-      line-height: 1.62;
-      margin: 18px 0 0;
-    }
-
-    .private-image {
-      height: 520px;
-      border-radius: 36px;
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(23,20,18,.14);
-    }
-
-    .final {
-      padding-top: 30px;
-      text-align: center;
-    }
-
-    .final h2 {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .final p {
-      margin: 18px auto 0;
-      max-width: 530px;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    footer {
-      padding: 52px 0;
-      background: var(--ink);
-      color: var(--white);
-    }
-
+    .step p { margin: 0; color: rgba(255,250,243,.62); line-height: 1.5; font-size: .92rem; }
+    .final { padding-top: 30px; text-align: center; }
+    .final h2 { max-width: 860px; margin: 0 auto; }
+    .final p { margin: 18px auto 0; max-width: 530px; color: var(--muted); line-height: 1.62; }
+    footer { padding: 52px 0; background: var(--ink); color: var(--white); }
     .footer-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .8fr .8fr .8fr;
-      gap: 26px;
-      align-items: start;
+      display: grid; grid-template-columns: 1.15fr .8fr .8fr .8fr;
+      gap: 26px; align-items: start;
     }
-
     .footer-logo {
       width: 168px;
       filter: invert(1) sepia(.15) saturate(.3) brightness(1.6);
     }
 
+    footer .brand-name { color: var(--white); }
+    footer .brand-meta { color: #c95745; }
+    footer .brand-meta::before { background: #c95745; }
+
     footer h4 {
-      margin: 0 0 12px;
-      color: #c95745;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-weight: 900;
+      margin: 0 0 12px; color: #c95745;
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; font-weight: 900;
     }
-
     footer p, footer a {
-      margin: 0;
-      color: rgba(255,250,243,.64);
-      line-height: 1.65;
-      font-size: .94rem;
+      margin: 0; color: rgba(255,250,243,.64);
+      line-height: 1.65; font-size: .94rem;
     }
-
-    .sr-note {
-      margin-top: 10px;
-      color: rgba(255,250,243,.45);
-      font-size: .83rem;
-    }
-
+    .sr-note { margin-top: 10px; color: rgba(255,250,243,.45); font-size: .83rem; }
     @media (max-width: 980px) {
       .nav-links { display: none; }
-      .hero-grid, .statement, .private, .footer-grid { grid-template-columns: 1fr; }
+      .hero-grid, .statement, .split, .split.reverse, .footer-grid { grid-template-columns: 1fr; }
       .cuts, .steps { grid-template-columns: repeat(2, 1fr); }
       .hero-image { height: 56vh; min-height: 470px; }
       .section-head { display: block; }
       .intro { margin-top: 16px; }
     }
-
     @media (max-width: 640px) {
       .container { width: min(calc(100% - 24px), var(--max)); }
       .nav { min-height: 68px; }
-      .logo { width: 158px; }
+      .brand-name { font-size: 1.42rem; }
       .hero { padding-top: 34px; }
       h1 { font-size: clamp(4rem, 18vw, 6.6rem); }
       .hero-image { min-height: 390px; border-radius: 28px; }
       .cuts, .steps { grid-template-columns: 1fr; }
       .cut { min-height: 330px; }
-      .private-image { height: 380px; border-radius: 28px; }
+      .photo-panel { height: 410px; border-radius: 28px; }
       .footer-grid { gap: 24px; }
     }
   </style>
@@ -476,22 +311,7 @@
   <div class="page">
     <header>
       <div class="container nav">
-        <a class="logo" href="#top" aria-label="Al’s Bar-B-Que home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="Al's Bar-B-Que">
-  <defs>
-    <style>
-      .ink{fill:#171412}
-      .accent{fill:#7b241d}
-      .word{font:700 118px Georgia, 'Times New Roman', serif; letter-spacing:-0.075em}
-      .sub{font:900 24px Inter, Arial, sans-serif; letter-spacing:0.34em}
-      .est{font:800 18px Inter, Arial, sans-serif; letter-spacing:0.22em}
-      .stroke{fill:none;stroke:#7b241d;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
-    </style>
-  </defs>
-  <path class="stroke" d="M292 52c16-18 13-37-4-49 5 16-5 28-16 37-9 8-11 21-5 31 8 14 25 17 38 10"/>
-  <text x="18" y="132" class="word ink">Al’s</text>
-  <text x="24" y="176" class="sub ink">BAR-B-QUE</text>
-  <text x="484" y="48" class="est accent">EST. 2014</text>
-</svg></a>
+        <a class="brand-wordmark" href="#top" aria-label="Al’s Bar-B-Que home"><span class="brand-name">Al’s Bar-B-Que</span><span class="brand-meta">Est. 2014</span></a>
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="#craft">Craft</a>
           <a href="#smoke">Smoke</a>
@@ -514,9 +334,8 @@
               <a class="btn btn-secondary" href="#smoke">What we smoke</a>
             </div>
           </div>
-
           <div class="hero-image">
-            <img src="images/hero.jpg" alt="Sliced smoked ribs on a wooden board">
+            <img src="images/hero.jpg" alt="Ribs smoking on a kettle barbecue">
             <div class="hero-stamp">
               <img src="icon.svg" alt="">
               <span>Est. 2014</span>
@@ -537,41 +356,38 @@
           <div class="section-head">
             <div>
               <div class="kicker">What We Smoke</div>
-              <h2>Core smokes.<br>Open fire.</h2>
+              <h2>What’s on<br>the smoker.</h2>
             </div>
-            <p class="intro">Ribs, brisket, pulled pork, chicken — and whatever deserves the time.</p>
+            <p class="intro">Ribs, pulled pork, chicken, small batch sausages — plus whatever deserves the time.</p>
           </div>
 
           <div class="cuts">
             <article class="cut">
-              <img src="images/ribs.jpg" alt="Ribs on the grill">
+              <img src="images/ribs.jpg" alt="Sliced smoked ribs on a board">
               <div class="cut-content">
                 <h3>Ribs</h3>
                 <p>Deep bark. Clean bite.</p>
               </div>
             </article>
-
             <article class="cut">
-              <img src="images/brisket.jpg" alt="Brisket placeholder image">
-              <div class="cut-content">
-                <h3>Brisket</h3>
-                <p>Long smoke. Dark bark.</p>
-              </div>
-            </article>
-
-            <article class="cut">
-              <img src="images/pulled-pork.jpg" alt="Pulled pork being prepared by hand">
+              <img src="images/pulled-pork.jpg" alt="Pulled pork prepared by hand">
               <div class="cut-content">
                 <h3>Pulled Pork</h3>
                 <p>Rested. Pulled by hand.</p>
               </div>
             </article>
-
             <article class="cut">
               <img src="images/chicken.jpg" alt="Smoked chicken on the grill">
               <div class="cut-content">
                 <h3>Chicken</h3>
                 <p>Smoke, spice, juicy meat.</p>
+              </div>
+            </article>
+            <article class="cut">
+              <img src="images/sausages.jpg" alt="Smoked sausages">
+              <div class="cut-content">
+                <h3>Sausages</h3>
+                <p>Small batch. When available.</p>
               </div>
             </article>
           </div>
@@ -589,33 +405,43 @@
           </div>
 
           <div class="steps">
-            <div class="step">
-              <div class="step-num">01</div>
-              <h3>Season</h3>
-              <p>Simple rub.</p>
-            </div>
-            <div class="step">
-              <div class="step-num">02</div>
-              <h3>Smoke</h3>
-              <p>Real heat. Real wood.</p>
-            </div>
-            <div class="step">
-              <div class="step-num">03</div>
-              <h3>Rest</h3>
-              <p>No rushing.</p>
-            </div>
-            <div class="step">
-              <div class="step-num">04</div>
-              <h3>Serve</h3>
-              <p>Clean. Warm. Ready.</p>
-            </div>
+            <div class="step"><div class="step-num">01</div><h3>Season</h3><p>Simple rub.</p></div>
+            <div class="step"><div class="step-num">02</div><h3>Smoke</h3><p>Real heat. Real wood.</p></div>
+            <div class="step"><div class="step-num">03</div><h3>Rest</h3><p>No rushing.</p></div>
+            <div class="step"><div class="step-num">04</div><h3>Serve</h3><p>Clean. Warm. Ready.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container split">
+          <div class="photo-panel">
+            <img src="images/dark-bark.jpg" alt="Dark smoked pork bark detail">
+          </div>
+          <div class="split-copy">
+            <div class="kicker">The Bark</div>
+            <h2>Smoke you can see.</h2>
+            <p>Dark bark, rendered fat, and the kind of texture only low heat and patience can build.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container split reverse">
+          <div class="split-copy">
+            <div class="kicker">The Long Smoke</div>
+            <h2>Low heat.<br>Real smoke.</h2>
+            <p>No rushing. The best part of barbecue is the time it takes.</p>
+          </div>
+          <div class="photo-panel">
+            <img src="images/long-smoke.jpg" alt="Pork shoulder smoking with a temperature probe">
           </div>
         </div>
       </section>
 
       <section id="private">
-        <div class="container private">
-          <div class="private-copy">
+        <div class="container split">
+          <div class="split-copy">
             <div class="kicker">Private BBQ</div>
             <h2>Bring Al’s to your next table.</h2>
             <p>Private gatherings, garden lunches, pop-ups, and custom BBQ tables.</p>
@@ -623,8 +449,8 @@
               <a class="btn btn-primary" href="#contact">Plan an event</a>
             </div>
           </div>
-          <div class="private-image">
-            <img src="images/private.jpg" alt="Barbecue served on butcher paper">
+          <div class="photo-panel">
+            <img src="images/private.jpg" alt="Kettle barbecue smoking over the hills">
           </div>
         </div>
       </section>
@@ -645,12 +471,11 @@
     <footer>
       <div class="container footer-grid">
         <div>
-          <img class="footer-logo" src="logo.svg" alt="Al’s Bar-B-Que logo">
-          <p class="sr-note">Low & Slow. No Shortcuts.</p>
+          <div class="brand-wordmark footer-wordmark"><span class="brand-name">Al’s Bar-B-Que</span><span class="brand-meta">Est. 2014</span></div><p class="sr-note">Low & Slow. No Shortcuts.</p>
         </div>
         <div>
           <h4>Smoke</h4>
-          <p>Ribs<br>Brisket<br>Pulled Pork<br>Chicken</p>
+          <p>Ribs<br>Pulled Pork<br>Chicken<br>Sausages</p>
         </div>
         <div>
           <h4>Format</h4>
