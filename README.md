@@ -1,18 +1,18 @@
-# Al's Bar-B-Que — GitHub Update
+# Al's Bar-B-Que — Landing v3
 
-Updated static landing page.
+Static HTML prototype.
 
-Changes:
-- Replaced Brisket placeholder with Sausages.
-- Added dark-bark pulled pork/pork shoulder detail section.
-- Updated Ribs, Pulled Pork, Chicken, Sausages, Hero and Private BBQ images.
-- Kept a minimal, premium, image-led structure.
+Direction:
+- Backyard Craft BBQ
+- Low & Slow. No Shortcuts.
+- Minimal, restrained, image-led
+- Reduced copy
+- Reduced photography
+- Smoke Apostrophe logo system
+- Est. 2014 included
 
-Deploy:
-- Upload the contents of this folder to the GitHub repository root.
-- Keep `index.html`, `logo.svg`, `icon.svg`, and `images/` at root.
-- Vercel will redeploy automatically after the GitHub commit.
+Open `index.html` locally in a browser.
 
-Before publishing:
-- Replace `hello@alsbarbque.com` with the real email.
-- Replace the Instagram `#` link with the real URL.
+Notes:
+- `images/brisket.jpg` is a placeholder using the available BBQ photo set.
+- Replace contact email and Instagram URL before publishing.
